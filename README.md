@@ -8,7 +8,7 @@ Interactive TUI application that helps solve physics equations easily
 ## Usage
 1. Install dependencies
 ```
-pip install -r requirements.txt
+pip install textual textual-dev
 ```
 2. Compile .c files into `.dll` for Windows or `.so` for Linux/Mac (Using GCC)
 
