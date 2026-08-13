@@ -1,0 +1,64 @@
+Screen {
+    align: center middle;
+}
+
+OptionList {
+    width: 70%;
+    height: 30%;
+}
+OptionList > .option-list--option-highlighted {
+    background: #438184; 
+    color: white;
+}
+MainMenuScreen {
+    align: center middle;
+}
+
+#menu_container {
+    width: 55;            
+    height: auto;
+    align: center middle;
+}
+
+#logo {
+    content-align: center middle;
+    width: 100%;
+    margin-bottom: 1;
+}
+#menuList {
+    width: 100%;
+    height: auto;
+    border: round #F67C18;  /* Optional: adds a nice clean box around options */
+    background: transparent;
+}
+#kinematicsList {
+    width: 50%;
+    height: auto;
+    border: round #F67C18;  /* Optional: adds a nice clean box around options */
+    background: transparent;
+}
+#kinematics_container {
+    align: center middle;
+}
+Input.-valid {
+    border: tall $success 60%;
+}
+Input.-valid:focus {
+    border: tall $success;
+}
+Input {
+    margin: 1 1;
+}
+#calc_button {
+    margin: 2 2 2 2;
+}
+#result_label {
+    margin: 2 2 2 2;
+}
+#back_button {
+    margin-left: 2;
+    dock: bottom;
+    align: right middle;
+    margin-right: 2;
+    margin-bottom: 1;
+}
