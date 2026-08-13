@@ -1,6 +1,6 @@
 # PhysiXC
 Interactive TUI application that helps solve physics equations easily
-<hr>
+
 <img width="1498" height="752" alt="image" src="https://github.com/user-attachments/assets/77dd80f0-e3a3-411a-98c6-694f0d04ded1" />
 <hr>
 
