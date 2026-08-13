@@ -598,7 +598,7 @@ class FrictionScreen(Screen):
             self.app.pop_screen()
 
 class Solver(App[None]):
-    CSS_PATH = "optionList.tcss"
+    CSS_PATH = "style.tcss"
     BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
 
     def on_mount(self) -> None:
