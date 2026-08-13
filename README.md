@@ -21,3 +21,8 @@ Linux/Mac:
 ```
 gcc -shared -fPIC -o kinematics.so kinematics.c -lm
 ```
+
+3. Run the application
+```
+python main.py
+```
