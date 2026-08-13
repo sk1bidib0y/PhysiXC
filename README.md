@@ -11,12 +11,12 @@ Interactive TUI application that helps solve physics equations easily
 pip install -r requirements.txt
 ```
 2. Compile .c files into `.dll` for Windows or `.so` for Linux/Mac (Using GCC)
-<br>
+
 Windows:
 ```
 gcc -shared -o kinematics.dll kinematics.c
 ```
-<br>
+
 Linux/Mac:
 ```
 gcc -shared -fPIC -o kinematics.so kinematics.c -lm
