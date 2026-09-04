@@ -40,6 +40,13 @@ MainMenuScreen {
 #kinematics_container {
     align: center middle;
 }
+#momentum_impulse_container {
+    align: center middle;
+}
+#rotational_container {
+    align: center middle;
+}
+
 Input.-valid {
     border: tall $success 60%;
 }
