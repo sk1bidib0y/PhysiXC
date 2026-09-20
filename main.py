@@ -7,99 +7,99 @@ import os
 import ctypes
 import math
 
-# Link kinematics file
+# Link mechanics file
 library_file = ""
 
 if os.name == "nt":
-  library_file = ".\\kinematics.dll"
+  library_file = ".\\mechanics.dll"
 else:
-  library_file = "./kinematics.so"
+  library_file = "./mechanics.so"
 
-kinematics = ctypes.CDLL(library_file)
+mechanics = ctypes.CDLL(library_file)
 
-# Load kinematics functions
+# Load mechanics functions
 
 """Projectile Motion"""
 
 # HORIZONTAL
-kinematics.horizontal_initial_velocity.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_char]
-kinematics.horizontal_initial_velocity.restype = ctypes.c_double
+mechanics.horizontal_initial_velocity.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_char]
+mechanics.horizontal_initial_velocity.restype = ctypes.c_double
 
-kinematics.horizontal_velocity.argtypes = [ctypes.c_double]
-kinematics.horizontal_velocity.restype = ctypes.c_double
+mechanics.horizontal_velocity.argtypes = [ctypes.c_double]
+mechanics.horizontal_velocity.restype = ctypes.c_double
 
-kinematics.horizontal_displacement.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.horizontal_displacement.restype = ctypes.c_double
+mechanics.horizontal_displacement.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.horizontal_displacement.restype = ctypes.c_double
 
 # VERTICAL
-kinematics.vertical_initial_velocity.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_char]
-kinematics.vertical_initial_velocity.restype = ctypes.c_double
+mechanics.vertical_initial_velocity.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_char]
+mechanics.vertical_initial_velocity.restype = ctypes.c_double
 
-kinematics.vertical_velocity_with_time.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.vertical_velocity_with_time.restype = ctypes.c_double
+mechanics.vertical_velocity_with_time.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.vertical_velocity_with_time.restype = ctypes.c_double
 
-kinematics.vertical_velocity_with_dist_v.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.vertical_velocity_with_dist_v.restype = ctypes.c_double
+mechanics.vertical_velocity_with_dist_v.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.vertical_velocity_with_dist_v.restype = ctypes.c_double
 
-kinematics.vertical_displacement.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.vertical_displacement.restype = ctypes.c_double
+mechanics.vertical_displacement.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.vertical_displacement.restype = ctypes.c_double
 
 """Friction"""
 
 # --- max static friction ---
-kinematics.static_friction_max.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.static_friction_max.restype = ctypes.c_double
+mechanics.static_friction_max.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.static_friction_max.restype = ctypes.c_double
 
 # --- kinetic friction ---
-kinematics.kinetic_friction.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.kinetic_friction.restype = ctypes.c_double
+mechanics.kinetic_friction.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.kinetic_friction.restype = ctypes.c_double
 
 # --- normal force ---
-kinematics.normal_force.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double]
-kinematics.normal_force.restype = ctypes.c_double
+mechanics.normal_force.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double]
+mechanics.normal_force.restype = ctypes.c_double
 
 # --- coefficient of friction ---
-kinematics.coefficient_of_friction.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.coefficient_of_friction.restype = ctypes.c_double
+mechanics.coefficient_of_friction.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.coefficient_of_friction.restype = ctypes.c_double
 
 """"Momentum & Impulse"""
 # momentum
-kinematics.momentum.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.momentum.restype = ctypes.c_double
+mechanics.momentum.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.momentum.restype = ctypes.c_double
 
 # impulse
-kinematics.impulse.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.impulse.restype = ctypes.c_double
+mechanics.impulse.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.impulse.restype = ctypes.c_double
 
 # velocity of elastic collision
-kinematics.elastic_collision_velocity.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
-kinematics.elastic_collision_velocity.restype = ctypes.c_double
+mechanics.elastic_collision_velocity.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
+mechanics.elastic_collision_velocity.restype = ctypes.c_double
 
 # velocity of inelastic collision
-kinematics.inelastic_collision_velocity.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
-kinematics.inelastic_collision_velocity.restype = ctypes.c_double
+mechanics.inelastic_collision_velocity.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
+mechanics.inelastic_collision_velocity.restype = ctypes.c_double
 
 # restitution coefficient
-kinematics.restitution_coefficient.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
-kinematics.restitution_coefficient.restype = ctypes.c_double
+mechanics.restitution_coefficient.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
+mechanics.restitution_coefficient.restype = ctypes.c_double
 
 
 """Rotational Motion"""
 # frequency
-kinematics.frequency.argtypes = [ctypes.c_double]
-kinematics.frequency.restype = ctypes.c_double
+mechanics.frequency.argtypes = [ctypes.c_double]
+mechanics.frequency.restype = ctypes.c_double
 
 # tangential velocity
-kinematics.tangential_velocity.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.tangential_velocity.restype = ctypes.c_double
+mechanics.tangential_velocity.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.tangential_velocity.restype = ctypes.c_double
 
 # tangential acceleration
-kinematics.tangential_acceleration.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.tangential_acceleration.restype = ctypes.c_double
+mechanics.tangential_acceleration.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.tangential_acceleration.restype = ctypes.c_double
 
 # centripetal acceleration
-kinematics.centripetal_acceleration.argtypes = [ctypes.c_double, ctypes.c_double]
-kinematics.centripetal_acceleration.restype = ctypes.c_double
+mechanics.centripetal_acceleration.argtypes = [ctypes.c_double, ctypes.c_double]
+mechanics.centripetal_acceleration.restype = ctypes.c_double
 
 LOGO = r"""
                 ###################.              
@@ -117,7 +117,7 @@ LOGO = r"""
                 ###################. 
 """
 
-"""Primary Screens (Main Menu, Kinematics)"""
+"""Primary Screens (Main Menu, mechanics)"""
 class MainMenuScreen(Screen):
     # The initial main menu screen.
     def compose(self) -> ComposeResult:
@@ -136,15 +136,15 @@ class MainMenuScreen(Screen):
 
     def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
         if event.option_id == "phy":
-            self.app.push_screen(KinematicsScreen())
+            self.app.push_screen(mechanicsScreen())
         elif event.option_id == "exit":
             self.app.exit()
 
-class KinematicsScreen(Screen):
-    # Screen for Kinematics calculations.
+class mechanicsScreen(Screen):
+    # Screen for mechanics calculations.
     def compose(self) -> ComposeResult:
         yield Header()
-        with Container(id="kinematics_container"):
+        with Container(id="mechanics_container"):
             yield OptionList(
                 Option("Projectile Motion", id="projectileChoice"),
                 None,
@@ -155,7 +155,7 @@ class KinematicsScreen(Screen):
                 Option("Rotational Motion", id="rotationalChoice"),
                 None,
                 Option("Back to main menu", id="back"),
-                id="kinematicsList"
+                id="mechanicsList"
             )
         yield Footer()
 
@@ -198,7 +198,7 @@ class HIVScreen(Screen):
                 ux = float(u_text)
                 angle = float(angle_text)
 
-                result = kinematics.horizontal_initial_velocity(ux, angle, b'd')
+                result = mechanics.horizontal_initial_velocity(ux, angle, b'd')
 
                 self.query_one("#result_label", Label).update(f"uₓ = {result:.2f} m/s")
 
@@ -231,7 +231,7 @@ class HDScreen(Screen):
                 ux = float(ux_text)
                 time = float(time_text)
 
-                result = kinematics.horizontal_displacement(ux, time)
+                result = mechanics.horizontal_displacement(ux, time)
 
                 self.query_one("#result_label", Label).update(f"sₓ = {result:.2f} m/s")
 
@@ -265,7 +265,7 @@ class VIVScreen(Screen):
                 vy = float(vy_text)
                 angle = float(angle_text)
 
-                result = kinematics.vertical_initial_velocity(vy, angle, b'd')
+                result = mechanics.vertical_initial_velocity(vy, angle, b'd')
 
                 self.query_one("#result_label", Label).update(f"vᵧ = {result:.2f} m/s")
 
@@ -298,7 +298,7 @@ class VVWTScreen(Screen):
                 vy = float(v_text)
                 time = float(time_text)
 
-                result = kinematics.vertical_velocity_with_time(vy, time)
+                result = mechanics.vertical_velocity_with_time(vy, time)
 
                 self.query_one("#result_label", Label).update(f"vᵧ = {result:.2f} m/s")
 
@@ -331,7 +331,7 @@ class VVWDVScreen(Screen):
                 vx = float(v_text)
                 dist = float(dist_text)
 
-                result = kinematics.vertical_velocity_with_dist_v(vx, dist)
+                result = mechanics.vertical_velocity_with_dist_v(vx, dist)
 
                 if math.isnan(result):
                     self.query_one("#result_label", Label).update("[red]Height is unreachable![/red]")
@@ -367,7 +367,7 @@ class VDScreen(Screen):
                 vx = float(v_text)
                 time = float(dist_text)
 
-                result = kinematics.vertical_displacement(vx, time)
+                result = mechanics.vertical_displacement(vx, time)
 
                 self.query_one("#result_label", Label).update(f"sᵧ = {result:.2f} m")
 
@@ -401,7 +401,7 @@ class FSMaxScreen(Screen):
                 mus = float(mus_text)
                 n = float(n_text)
 
-                result = kinematics.static_friction_max(mus, n)
+                result = mechanics.static_friction_max(mus, n)
 
                 self.query_one("#result_label", Label).update(f"Fₛ,ₘₐₓ = {result:.2f} N")
 
@@ -434,7 +434,7 @@ class FKScreen(Screen):
                 muk = float(muk_text)
                 n = float(n_text)
 
-                result = kinematics.kinetic_friction(muk, n)
+                result = mechanics.kinetic_friction(muk, n)
 
                 self.query_one("#result_label", Label).update(f"Fₖ = {result:.2f} N")
 
@@ -467,7 +467,7 @@ class FNScreen(Screen):
                 mass = float(mass_text)
                 angle = float(angle_text) if angle_text else 0.0
 
-                result = kinematics.normal_force(mass, 9.81, angle)
+                result = mechanics.normal_force(mass, 9.81, angle)
 
                 self.query_one("#result_label", Label).update(f"Fₙ = {result:.2f} N")
 
@@ -504,7 +504,7 @@ class MuSScreen(Screen):
                     self.query_one("#result_label", Label).update("[red]Normal Force cannot be 0![/red]")
                     return
 
-                result = kinematics.coefficient_of_friction(fs, n)
+                result = mechanics.coefficient_of_friction(fs, n)
 
                 self.query_one("#result_label", Label).update(f"μₛ = {result:.2f}")
 
@@ -541,7 +541,7 @@ class MuKScreen(Screen):
                     self.query_one("#result_label", Label).update("[red]Normal Force cannot be 0![/red]")
                     return
 
-                result = kinematics.coefficient_of_friction(fk, n)
+                result = mechanics.coefficient_of_friction(fk, n)
 
                 if math.isnan(result):
                     self.query_one("#result_label", Label).update("[red]Invalid input values![/red]")
@@ -577,7 +577,7 @@ class MomentumScreen(Screen):
                 m = float(m_text)
                 v = float(v_text)
 
-                result = kinematics.momentum(m, v)
+                result = mechanics.momentum(m, v)
 
                 self.query_one("#result_label", Label).update(f"p = {result:.2f} kg⋅m/s")
 
@@ -611,7 +611,7 @@ class ImpulseScreen(Screen):
                 F = float(F_text)
                 t = float(t_text)
 
-                result = kinematics.impulse(F, t)
+                result = mechanics.impulse(F, t)
 
                 self.query_one("#result_label", Label).update(f"J = {result:.2f} N⋅s")
 
@@ -650,7 +650,7 @@ class ECVScreen(Screen):
                 mTwo = float(mTwo_text)
                 vTwo = float(vTwo_text)
 
-                result = kinematics.elastic_collision_velocity(mOne, vOne, mTwo, vTwo)
+                result = mechanics.elastic_collision_velocity(mOne, vOne, mTwo, vTwo)
 
                 self.query_one("#result_label", Label).update(f"v = {result:.2f} m/s")
 
@@ -689,7 +689,7 @@ class ICVScreen(Screen):
                 mTwo = float(mTwo_text)
                 vTwo = float(vTwo_text)
 
-                result = kinematics.inelastic_collision_velocity(mOne, vOne, mTwo, vTwo)
+                result = mechanics.inelastic_collision_velocity(mOne, vOne, mTwo, vTwo)
 
                 self.query_one("#result_label", Label).update(f"v = {result:.2f} m/s")
 
@@ -728,7 +728,7 @@ class ROScreen(Screen):
                 mTwo = float(mTwo_text)
                 vTwo = float(vTwo_text)
 
-                result = kinematics.restitution_coefficient(mOne, vOne, mTwo, vTwo)
+                result = mechanics.restitution_coefficient(mOne, vOne, mTwo, vTwo)
 
                 self.query_one("#result_label", Label).update(f"e = {result:.2f}")
 
@@ -760,7 +760,7 @@ class FrequencyScreen(Screen):
                 # 3. Convert strings to floats
                 f = float(f_text)
 
-                result = kinematics.frequency(f)
+                result = mechanics.frequency(f)
 
                 self.query_one("#result_label", Label).update(f"f = {result} Hz")
 
@@ -797,7 +797,7 @@ class TVScreen(Screen):
                     self.query_one("#result_label", Label).update("[red]Radius cannot be 0![/red]")
                     return
 
-                result = kinematics.tangential_velocity(av, r)
+                result = mechanics.tangential_velocity(av, r)
 
                 if math.isnan(result):
                     self.query_one("#result_label", Label).update("[red]Invalid input values![/red]")
@@ -836,7 +836,7 @@ class TAScreen(Screen):
                     self.query_one("#result_label", Label).update("[red]Radius cannot be 0![/red]")
                     return
 
-                result = kinematics.tangential_acceleration(aa, r)
+                result = mechanics.tangential_acceleration(aa, r)
 
                 if math.isnan(result):
                     self.query_one("#result_label", Label).update("[red]Invalid input values![/red]")
@@ -875,7 +875,7 @@ class CAScreen(Screen):
                     self.query_one("#result_label", Label).update("[red]Radius cannot be 0![/red]")
                     return
 
-                result = kinematics.centripetal_acceleration(tv, r)
+                result = mechanics.centripetal_acceleration(tv, r)
 
                 if math.isnan(result):
                     self.query_one("#result_label", Label).update("[red]Invalid input values![/red]")
@@ -898,7 +898,7 @@ class ProjectileScreen(Screen):
     def compose(self) -> ComposeResult:
         yield Header()
         yield Static("")
-        with Container(id="kinematics_container"):
+        with Container(id="mechanics_container"):
             yield OptionList(
                 Option("Horizontal Initial Velocity", id="HIV"),
                 None,
@@ -916,7 +916,7 @@ class ProjectileScreen(Screen):
                 Option("Vertical Distance", id="VD"),
                 None,
                 Option("Back to main menu", id="back"),
-                id="kinematicsList"
+                id="mechanicsList"
             )
         yield Footer()
 
@@ -944,7 +944,7 @@ class FrictionScreen(Screen):
     def compose(self) -> ComposeResult:
         yield Header()
         yield Static("")
-        with Container(id="kinematics_container"):
+        with Container(id="mechanics_container"):
             yield OptionList(
                 Option("Max Static Friction Force (Fs,max)", id="FSMAX"),
                 None,
@@ -959,7 +959,7 @@ class FrictionScreen(Screen):
                 Option("Applied Force Threshold (Impending Motion)", id="AFT"),
                 None,
                 Option("Back to main menu", id="back"),
-                id="kinematicsList"
+                id="mechanicsList"
             )
         yield Footer()
 
@@ -997,7 +997,7 @@ class MomentumImpulseScreen(Screen):
                 Option("Restitution coefficient", id="RO"),
                 None,
                 Option("Back to main menu", id="back"),
-                id="kinematicsList"
+                id="mechanicsList"
             )
         yield Footer()
 
@@ -1031,7 +1031,7 @@ class RotationalScreen(Screen):
                 Option("Centripetal acceleration", id="CA"),
                 None,
                 Option("Back to main menu", id="back"),
-                id="kinematicsList"
+                id="mechanicsList"
             )
         yield Footer()
 
