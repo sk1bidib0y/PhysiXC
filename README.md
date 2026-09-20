@@ -14,12 +14,12 @@ pip install textual textual-dev
 
 Windows:
 ```
-gcc -shared -o kinematics.dll kinematics.c
+gcc -shared -o mechanics.dll mechanics.c
 ```
 
 Linux/Mac:
 ```
-gcc -shared -fPIC -o kinematics.so kinematics.c -lm
+gcc -shared -fPIC -o mechanics.so mechanics.c -lm
 ```
 
 3. Run the application
